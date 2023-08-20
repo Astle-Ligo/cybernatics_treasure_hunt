@@ -1,0 +1,30 @@
+<div class="container pt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Response</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <th scope="row">{{@index}}</th>
+                <th scope="row"> {{this.name}} </th>
+                <th scope="row">
+                    <table class="table">
+                        <tbody>
+                            {{#each this.products}}
+                            <tr>
+                                <th scope="row">{{this}}</th>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </th>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
