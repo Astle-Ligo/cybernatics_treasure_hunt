@@ -8,12 +8,6 @@ var objectId = require('mongodb').ObjectId
 
 module.exports = {
 
-    addResponse: (text, callback) => {
-        console.log(text);
-        db.get().collection(collection.USER_INPUT).insertOne(text).then((data) => {
-            callback(true)
-        })
-    },
 
     doSignup: (userData) => {
         return new Promise(async (resolve, reject) => {
@@ -50,7 +44,6 @@ module.exports = {
     },
 
     addToCart: (user , time) => {
-        console.log(user.Name);
         return new Promise(async (resolve, reject) => {
             let userCart = await db.get().collection(collection.CART_COLLECTION).findOne({ user: new objectId(user._id) })
             if (userCart) {
@@ -66,7 +59,7 @@ module.exports = {
             } else {
                 let cartObject = {
                     user: new objectId(user._id),
-                    name : user.Name,
+                    Name : user.Name,
                     products: [time]
                 }
                 db.get().collection(collection.CART_COLLECTION).insertOne(cartObject).then((response) => {

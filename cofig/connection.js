@@ -4,7 +4,7 @@ const state = {
     db:null
 }
 
-const url = 'mongodb://127.0.0.1:27017'
+const url = 'mongodb://astlelijo04:PvIx3StcfsHMfmIb@ac-iwwlbfc-shard-00-00.nani97p.mongodb.net:27017,ac-iwwlbfc-shard-00-01.nani97p.mongodb.net:27017,ac-iwwlbfc-shard-00-02.nani97p.mongodb.net:27017/?replicaSet=atlas-11291c-shard-0&ssl=true&authSource=admin'
 const dbName = 'Cybernatics'
 
 const client = new MongoClient(url);

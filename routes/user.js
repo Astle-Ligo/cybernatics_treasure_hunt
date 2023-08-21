@@ -17,7 +17,8 @@ router.get('/', function (req, res, next) {
 router.post('/', (req, res) => {
   console.log(req.body);
   userHelper.addToCart(req.session.user,req.body.Time).then(() => {
-    console.log(req.session.user.Name);
+    console.log(req.body);
+    //res.redirect('/')
   })
 }) 
 
