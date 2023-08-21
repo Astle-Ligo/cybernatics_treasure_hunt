@@ -9,7 +9,8 @@ var txt2
 
 var data = []                                       //VARIABLE TO STORE THE DATA OF INPUT TO SAVE AS PDF
 
-var answer = ["START", "MAINGATE.MP4", "JB007", "A-102", "EVIDENCE.DATA", "SIXTY EIGHT", "RES"]
+var answer = ["YES", "L I", "LI", "B B", "BB", "R I", "RI", "D"];
+var userInputedAnswer = []
 
 var score = 0;                                      //VARIABLE TO STORE THE SCORE
 
@@ -412,7 +413,7 @@ function sent() {
 
 
 
-    if ((userinput === "YES") && (startcount < 1)) {
+    if ((userinput === answer[0]) && (startcount < 1)) {
 
         storys = "Perfect! My intel reveals that each line of the document conceals a letter of the alphabet. This is urgent, so we'll take it 2 lines at a time."
 
@@ -425,14 +426,14 @@ function sent() {
         printclue1(clues1);
         printclue2(clues2)
 
-
+        userInputedAnswer.push(userinput)
         //printimage()
         startcount++
 
 
     }
 
-    else if ((userinput === "L I" || userinput === "LI") && (clue1count < 1)) {
+    else if ((userInputedAnswer[0] === answer[0]) && (userinput === answer[1] || userinput === answer[2]) && (clue1count < 1)) {
 
         storys = "I knew it was a good idea to come to you! Hmm. These lines seem rather similar."
 
@@ -446,13 +447,14 @@ function sent() {
         printclue2(clues2)
 
 
+        userInputedAnswer.push(userinput)
         //printimage()
         clue1count++
 
 
     }
 
-    else if ((userinput === "B B" || userinput === "BB") && (clue2count < 1)) {
+    else if ((userInputedAnswer[0] === answer[0] && userInputedAnswer[1] === answer[1] || userInputedAnswer[1] === answer[2]) && (userinput === answer[3] || userinput === answer[4]) && (clue2count < 1)) {
 
         storys = "We're getting closer!"
 
@@ -466,13 +468,14 @@ function sent() {
         printclue2(clues2)
 
 
+        userInputedAnswer.push(userinput)
         //printimage()
         clue2count++
 
 
     }
 
-    else if ((userinput === "R I" || userinput === "RI") && (clue3count < 1)) {
+    else if (((userInputedAnswer[0] === answer[0]) && (userInputedAnswer[1] === answer[1] || userInputedAnswer[1] === answer[2]) && (userInputedAnswer[2] === answer[3] || userInputedAnswer[2] === answer[4])) && (userinput === answer[5] || userinput === answer[6]) && (clue3count < 1)) {
 
         storys = "Agent! My cover is blown! We don't have enough time to get through this entire document. The next line is our only hope. Remember, time is of the essence!"
 
@@ -484,13 +487,15 @@ function sent() {
         printclue1(clues1);
 
 
+        userInputedAnswer.push(userinput)
         //printimage()
         clue3count++
 
 
     }
 
-    else if ((userinput === "D") && (clue4count < 1)) {
+    else if ((userInputedAnswer[0] === answer[0] && (userInputedAnswer[1] === answer[1] || userInputedAnswer[1] === answer[2]) && (userInputedAnswer[2] === answer[3] || userInputedAnswer[2] === answer[4]) && (userInputedAnswer[3] === answer[5] || userInputedAnswer[3] === answer[6]) && (userinput === answer[7]) && (clue4count < 1)))
+     {
 
         storys = "I'm being tracked! I need your team to finish this mission for me."
 
@@ -507,6 +512,7 @@ function sent() {
         printclue2(clues2);
 
 
+        userInputedAnswer.push(userinput)
         //printimage()
         clue4count++
 
